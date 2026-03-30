@@ -1,0 +1,2707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deer Valley Basecamp | Private Guest Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark: #383123;
+      --brown-deep: #3d2a1c;
+      --brown-choc: #3f2515;
+      --gold: #897f59;
+      --brown-med: #7a6045;
+      --terra: #996359;
+      --rose: #b69ea2;
+      --copper: #af6730;
+      --caramel: #a46c3c;
+      --cream: #f5f0e8;
+      --cream-light: #faf7f2;
+      --cream-warm: #ede6d8;
+      --white: #ffffff;
+
+      --ink: var(--dark);
+      --panel: rgba(250, 247, 242, 0.92);
+      --line: rgba(61, 42, 28, 0.12);
+      --shadow-lg: 0 16px 48px rgba(56, 49, 35, 0.12);
+      --shadow-md: 0 8px 32px rgba(56, 49, 35, 0.08);
+      --radius-xl: 20px;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 520px at 5% -10%, rgba(175, 103, 48, 0.14), transparent 60%),
+        radial-gradient(960px 480px at 100% 0%, rgba(122, 96, 69, 0.08), transparent 62%),
+        linear-gradient(180deg, var(--cream-light), var(--cream) 52%, var(--cream-warm) 100%);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      width: min(1240px, calc(100% - 52px));
+      margin: 24px auto 44px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 16px;
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(4px);
+      position: sticky;
+      top: 12px;
+      z-index: 40;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--brown-deep);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .brand-stack {
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+    }
+
+    .brand-sub {
+      font-size: 0.62rem;
+      letter-spacing: 0.24em;
+      color: var(--brown-med);
+    }
+
+    .brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(61, 42, 28, 0.25);
+      object-fit: contain;
+      background: rgba(255, 255, 255, 0.96);
+      padding: 0;
+    }
+
+    .quick-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .meta-chip {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(61, 42, 28, 0.16);
+      background: rgba(250, 247, 242, 0.92);
+      font-size: 0.67rem;
+      color: var(--brown-med);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .meta-chip--action {
+      background: var(--brown-deep);
+      border-color: var(--brown-deep);
+      color: var(--cream-light);
+      text-decoration: none;
+    }
+
+    .weather-mini {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(250, 247, 242, 0.9);
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .weather-mini-head {
+      color: var(--brown-med);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.62rem;
+    }
+
+    .hero {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid rgba(61, 42, 28, 0.2);
+      box-shadow: var(--shadow-lg);
+      background: linear-gradient(130deg, rgba(61, 42, 28, 0.95), rgba(36, 26, 18, 0.86));
+      color: var(--cream-light);
+      margin-bottom: 24px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      min-height: 560px;
+    }
+
+    .hero-copy {
+      padding: 54px clamp(24px, 4vw, 48px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+      max-width: min(760px, 60%);
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(175, 103, 48, 0.35), transparent 68%);
+      right: -120px;
+      bottom: -120px;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 0.68rem;
+      color: #d8c89a;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: "DM Sans", sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 0.95;
+      font-weight: 400;
+      margin-bottom: 18px;
+      max-width: 620px;
+    }
+
+    .hero-sub {
+      color: rgba(245, 240, 232, 0.84);
+      max-width: 760px;
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .hero-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(237, 230, 216, 0.32);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: 0.25s ease;
+    }
+
+    .hero-action--primary {
+      background: var(--cream-light);
+      color: var(--brown-deep);
+      border-color: var(--cream-light);
+    }
+
+    .hero-action--secondary {
+      background: rgba(245, 240, 232, 0.08);
+      color: var(--cream-light);
+    }
+
+    .hero-action:hover {
+      transform: translateY(-1px);
+    }
+
+    .stay-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 12px;
+      max-width: 560px;
+    }
+
+    .stay-card {
+      border: 1px solid rgba(237, 230, 216, 0.18);
+      background: linear-gradient(180deg, rgba(245, 240, 232, 0.08), rgba(245, 240, 232, 0.05));
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+
+    .stay-card--details {
+      min-height: 136px;
+    }
+
+    .stay-card--wifi .stay-details {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stay-card--wifi .stay-card-footer {
+      gap: 8px;
+    }
+
+    .stay-card--address {
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .stay-card--timing-pair {
+      grid-column: 1 / -1;
+      min-height: 0;
+      gap: 12px;
+    }
+
+    .stay-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .stay-timing-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .stay-timing-item {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .stay-timing-item + .stay-timing-item {
+      border-left: 1px solid rgba(237, 230, 216, 0.14);
+      padding-left: 16px;
+    }
+
+    .stay-label {
+      font-size: 0.62rem;
+      line-height: 1;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #d8c89a;
+      margin-bottom: 2px;
+    }
+
+    .stay-value {
+      font-size: 0.98rem;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      font-weight: 500;
+      color: var(--cream-light);
+      word-break: break-word;
+    }
+
+    .stay-details {
+      display: grid;
+      gap: 10px;
+    }
+
+    .stay-detail {
+      display: grid;
+      gap: 4px;
+    }
+
+    .stay-detail-label {
+      font-size: 0.54rem;
+      line-height: 1;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(216, 200, 154, 0.7);
+    }
+
+    .stay-value--compact {
+      font-size: 0.88rem;
+      line-height: 1.22;
+    }
+
+    .stay-value--network {
+      color: rgba(250, 247, 242, 0.82);
+      font-size: 0.83rem;
+    }
+
+    .stay-value--password {
+      font-size: 0.96rem;
+      line-height: 1.16;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+      color: var(--cream-light);
+    }
+
+    .stay-value--address {
+      max-width: 14ch;
+      line-height: 1.22;
+    }
+
+    .stay-value--timing {
+      font-size: 1.16rem;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 400;
+    }
+
+    .stay-card-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(237, 230, 216, 0.26);
+      background: rgba(245, 240, 232, 0.06);
+      color: var(--cream-light);
+      font: inherit;
+      font-size: 0.56rem;
+      line-height: 1;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      justify-self: start;
+      transition: 0.25s ease;
+    }
+
+    .stay-card-action--subtle {
+      min-height: 28px;
+      padding: 0 10px;
+      font-size: 0.52rem;
+      letter-spacing: 0.16em;
+      border-color: rgba(237, 230, 216, 0.2);
+      background: rgba(245, 240, 232, 0.04);
+    }
+
+    .stay-card-action:hover {
+      background: var(--cream-light);
+      color: var(--brown-deep);
+      border-color: var(--cream-light);
+    }
+
+    .stay-copy-status {
+      display: block;
+      min-height: 0.8rem;
+      color: rgba(245, 240, 232, 0.74);
+      font-size: 0.58rem;
+      line-height: 1.3;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease;
+    }
+
+    .stay-copy-status.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .hero-photos {
+      display: none;
+    }
+
+    .hero-photos figure {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      min-height: 300px;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .hero-photos figure:first-child {
+      min-height: 300px;
+    }
+
+    .hero-photos img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .hero-photos figure:hover img {
+      transform: scale(1.04);
+    }
+
+    .hero-side-info {
+      border: 1px solid rgba(237, 230, 216, 0.2);
+      border-radius: var(--radius-md);
+      background: rgba(245, 240, 232, 0.08);
+      padding: 11px;
+      display: grid;
+      gap: 7px;
+    }
+
+    .hero-side-label {
+      color: #d8c89a;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.6rem;
+    }
+
+    .hero-side-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      border-top: 1px dashed rgba(237, 230, 216, 0.2);
+      padding-top: 7px;
+      color: var(--cream-light);
+      font-size: 0.77rem;
+    }
+
+    .hero-side-row:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .hero-right-logo {
+      position: absolute;
+      right: clamp(24px, 5vw, 70px);
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(250px, 27vw, 360px);
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      z-index: 1;
+      pointer-events: none;
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid rgba(237, 230, 216, 0.85);
+      box-shadow: 0 22px 52px rgba(0, 0, 0, 0.3), inset 0 0 0 10px rgba(245, 240, 232, 0.9);
+    }
+
+    .hero-right-logo img {
+      width: 66%;
+      height: 66%;
+      object-fit: contain;
+      filter: saturate(0.95) contrast(1.02);
+      opacity: 1;
+    }
+
+    .caption {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(36, 26, 18, 0.74);
+      color: var(--cream-light);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .guide-nav {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      overflow-x: auto;
+      margin-bottom: 16px;
+      padding-bottom: 4px;
+    }
+
+    .guide-nav a {
+      text-decoration: none;
+      color: var(--brown-med);
+      border: 1px solid rgba(61, 42, 28, 0.18);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: 0.25s ease;
+      white-space: nowrap;
+      background: rgba(255, 255, 255, 0.46);
+    }
+
+    .guide-nav a.active,
+    .guide-nav a:hover {
+      background: var(--brown-deep);
+      color: var(--cream-light);
+      border-color: var(--brown-deep);
+    }
+
+    .mobile-home {
+      display: none;
+    }
+
+    .mobile-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: var(--panel);
+      box-shadow: var(--shadow-md);
+      padding: 18px;
+    }
+
+    .mobile-panel-label {
+      color: rgba(61, 42, 28, 0.62);
+      text-transform: uppercase;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      margin-bottom: 14px;
+    }
+
+    .mobile-arrival-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .mobile-arrival-card {
+      width: 100%;
+      min-height: 138px;
+      border: 1px solid rgba(61, 42, 28, 0.12);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 253, 250, 0.92);
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+      text-align: center;
+    }
+
+    .mobile-arrival-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 10px;
+      width: 100%;
+      flex: 1;
+    }
+
+    .mobile-arrival-label {
+      color: rgba(61, 42, 28, 0.4);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .mobile-arrival-value {
+      color: #2f2015;
+      font-family: "DM Sans", sans-serif;
+      font-size: 1.34rem;
+      line-height: 1;
+      font-weight: 600;
+    }
+
+    .mobile-arrival-details {
+      display: grid;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .mobile-arrival-detail-label {
+      color: rgba(61, 42, 28, 0.34);
+      font-size: 0.52rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .mobile-arrival-detail-value {
+      color: rgba(61, 42, 28, 0.74);
+      font-size: 0.78rem;
+      line-height: 1.22;
+      font-weight: 500;
+      word-break: break-word;
+    }
+
+    .mobile-arrival-detail-value--network {
+      color: #2f2015;
+      font-size: 0.96rem;
+      line-height: 1.08;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      word-break: normal;
+      overflow-wrap: normal;
+    }
+
+    .mobile-arrival-detail-value--password {
+      word-break: normal;
+      overflow-wrap: anywhere;
+    }
+
+    .mobile-arrival-action {
+      min-height: 38px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(61, 42, 28, 0.16);
+      background: rgba(245, 240, 232, 0.66);
+      color: rgba(61, 42, 28, 0.82);
+      font: inherit;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .mobile-arrival-action:hover {
+      background: var(--brown-deep);
+      border-color: var(--brown-deep);
+      color: var(--cream-light);
+    }
+
+    .mobile-copy-status {
+      display: none;
+      margin-top: 10px;
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      background: rgba(61, 42, 28, 0.08);
+      color: var(--brown-deep);
+      font-size: 0.83rem;
+    }
+
+    .mobile-copy-status.is-visible {
+      display: block;
+    }
+
+    .mobile-highlight-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .mobile-highlight-card {
+      padding: 14px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      border-bottom: 1px solid rgba(61, 42, 28, 0.1);
+    }
+
+    .mobile-highlight-card:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .mobile-highlight-name {
+      color: #2f2015;
+      font-family: "DM Sans", sans-serif;
+      font-weight: 600;
+      font-size: 1.6rem;
+      line-height: 0.94;
+      margin-bottom: 7px;
+    }
+
+    .mobile-highlight-copy {
+      color: rgba(122, 96, 69, 0.9);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      max-width: 18rem;
+    }
+
+    .mobile-highlight-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      min-width: 72px;
+      flex-shrink: 0;
+    }
+
+    .mobile-highlight-time {
+      color: rgba(143, 119, 83, 0.88);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .mobile-highlight-link {
+      color: rgba(61, 42, 28, 0.72);
+      font-size: 0.66rem;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .mobile-highlight-link:hover {
+      color: var(--copper);
+    }
+
+    .mobile-section-toggle {
+      display: none;
+    }
+
+    .mobile-section-meta {
+      display: grid;
+      gap: 8px;
+    }
+
+    .mobile-section-tag {
+      color: var(--copper);
+      text-transform: uppercase;
+      font-size: 0.67rem;
+      letter-spacing: 0.18em;
+    }
+
+    .mobile-section-copy {
+      color: var(--brown-med);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      max-width: 42rem;
+    }
+
+    .mobile-section-icon {
+      flex-shrink: 0;
+      color: var(--brown-deep);
+      font-size: 1.8rem;
+      line-height: 1;
+      transition: transform 0.22s ease;
+    }
+
+    .mobile-section-body {
+      display: block;
+    }
+
+    .section {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: var(--panel);
+      box-shadow: var(--shadow-md);
+      margin-top: 22px;
+      padding: clamp(22px, 4vw, 38px);
+      overflow: hidden;
+    }
+
+    .section-head {
+      margin-bottom: 22px;
+    }
+
+    .eyebrow {
+      color: var(--copper);
+      text-transform: uppercase;
+      font-size: 0.67rem;
+      letter-spacing: 0.18em;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: "DM Sans", sans-serif;
+      font-size: clamp(1.55rem, 4vw, 2.6rem);
+      line-height: 1.1;
+      color: var(--brown-deep);
+      margin-bottom: 10px;
+    }
+
+    .section-desc {
+      color: var(--brown-med);
+      max-width: 760px;
+      font-size: 0.92rem;
+    }
+
+    .amenities-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .feature-panel {
+      display: none;
+    }
+
+    .feature-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .feature-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(36, 26, 18, 0.72), transparent 48%);
+    }
+
+    .panel-text {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 2;
+      color: var(--cream-light);
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .tile {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      background: rgba(250, 247, 242, 0.9);
+      min-height: 108px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .tile h3 {
+      color: var(--brown-deep);
+      font-size: 0.93rem;
+      margin-bottom: 0;
+    }
+
+    .tile p {
+      color: var(--brown-med);
+      font-size: 0.83rem;
+      line-height: 1.45;
+      flex-grow: 1;
+      margin-bottom: 0;
+    }
+
+    .tile-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .tile-link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .tile-guide-link {
+      text-decoration: none;
+      border: 1px solid rgba(61, 42, 28, 0.24);
+      border-radius: 999px;
+      color: var(--brown-deep);
+      background: rgba(245, 240, 232, 0.88);
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 6px 9px;
+      transition: 0.22s ease;
+    }
+
+    .tile-guide-link:hover {
+      background: var(--brown-deep);
+      border-color: var(--brown-deep);
+      color: var(--cream-light);
+    }
+
+    .list-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .favorites-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      align-items: start;
+    }
+
+    .favorites-column {
+      display: grid;
+      gap: 8px;
+    }
+
+    .favorites-label {
+      color: var(--copper);
+      text-transform: uppercase;
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+    }
+
+    .favorites-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .favorites-link {
+      color: var(--brown-deep);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .favorites-link:hover {
+      color: var(--copper);
+    }
+
+    .favorites-card {
+      align-items: flex-start;
+    }
+
+    .favorites-card .maps-link {
+      margin-left: auto;
+    }
+
+    .favorites-meta-link {
+      color: var(--brown-med);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .favorites-meta-link:hover {
+      color: var(--copper);
+    }
+
+    .weather-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(110px, 1fr));
+      gap: 8px;
+    }
+
+    .weather-card {
+      border: 1px solid rgba(61, 42, 28, 0.16);
+      border-radius: var(--radius-md);
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.82), rgba(245, 240, 232, 0.85));
+      padding: 8px 9px;
+      min-height: 88px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 5px;
+    }
+
+    .weather-day {
+      color: var(--brown-deep);
+      font-weight: 600;
+      font-size: 0.76rem;
+    }
+
+    .weather-code {
+      color: var(--brown-med);
+      font-size: 0.68rem;
+      line-height: 1.35;
+    }
+
+    .weather-temp {
+      color: var(--copper);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .weather-loading {
+      color: var(--brown-med);
+      font-size: 0.74rem;
+      grid-column: 1 / -1;
+      border: 1px dashed rgba(61, 42, 28, 0.22);
+      border-radius: var(--radius-md);
+      padding: 8px 10px;
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .list-card {
+      border: 1px solid rgba(61, 42, 28, 0.16);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.66);
+      padding: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .list-card h3 {
+      color: var(--brown-deep);
+      font-size: 0.92rem;
+      margin-bottom: 4px;
+    }
+
+    .list-card p {
+      color: var(--brown-med);
+      font-size: 0.79rem;
+      line-height: 1.4;
+    }
+
+    .maps-link {
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(61, 42, 28, 0.25);
+      color: var(--brown-deep);
+      font-size: 0.72rem;
+      white-space: nowrap;
+      transition: 0.25s ease;
+      background: rgba(245, 240, 232, 0.86);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .maps-link:hover {
+      background: var(--brown-deep);
+      color: var(--cream-light);
+      border-color: var(--brown-deep);
+    }
+
+    .photo-ribbon {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .photo-ribbon figure {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(61, 42, 28, 0.18);
+      min-height: 160px;
+    }
+
+    .photo-ribbon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .nearby-photo-ribbon {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nearby-photo-ribbon figure {
+      position: relative;
+      min-height: 200px;
+    }
+
+    .nearby-photo-ribbon figcaption {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(34, 25, 18, 0.72);
+      color: #f8f4ed;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 1px solid rgba(248, 244, 237, 0.28);
+      backdrop-filter: blur(2px);
+    }
+
+    .dining-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(210px, 1fr));
+      gap: 12px;
+    }
+
+    .dining-group + .dining-group {
+      margin-top: 14px;
+    }
+
+    .dining-group-title {
+      color: var(--brown-deep);
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .dining-card {
+      border: 1px solid rgba(61, 42, 28, 0.18);
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.72), rgba(245, 240, 232, 0.75));
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 148px;
+    }
+
+    .dining-name {
+      color: var(--brown-deep);
+      font-weight: 600;
+      font-size: 0.96rem;
+    }
+
+    .dining-type {
+      color: var(--brown-med);
+      font-size: 0.8rem;
+      flex-grow: 1;
+    }
+
+    .dining-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.76rem;
+      color: var(--gold);
+      border-top: 1px dashed rgba(61, 42, 28, 0.2);
+      padding-top: 9px;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .filter-btn {
+      border: 1px solid rgba(61, 42, 28, 0.22);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--brown-med);
+      padding: 7px 12px;
+      font-size: 0.71rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      color: var(--cream-light);
+      background: var(--copper);
+      border-color: var(--copper);
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(260px, 1fr));
+      gap: 11px;
+    }
+
+    .activity-item.hidden {
+      display: none;
+    }
+
+    .tag {
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 0.63rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .tag.winter {
+      color: var(--brown-deep);
+      background: rgba(137, 127, 89, 0.16);
+      border-color: rgba(137, 127, 89, 0.3);
+    }
+
+    .tag.family {
+      color: var(--brown-deep);
+      background: rgba(175, 103, 48, 0.12);
+      border-color: rgba(175, 103, 48, 0.24);
+    }
+
+    .tag.trails {
+      color: var(--brown-deep);
+      background: rgba(122, 96, 69, 0.12);
+      border-color: rgba(122, 96, 69, 0.24);
+    }
+
+    .tag.water {
+      color: var(--brown-deep);
+      background: rgba(237, 230, 216, 0.92);
+      border-color: rgba(137, 127, 89, 0.26);
+    }
+
+    .concierge {
+      background: linear-gradient(130deg, var(--brown-deep), var(--brown-choc));
+      color: var(--cream-light);
+      border-color: rgba(61, 42, 28, 0.28);
+    }
+
+    .concierge .eyebrow {
+      color: #d7c189;
+    }
+
+    .concierge .section-title,
+    .concierge .section-desc {
+      color: var(--cream-light);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(170px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .service-chip {
+      border: 1px solid rgba(237, 230, 216, 0.26);
+      background: rgba(250, 247, 242, 0.08);
+      border-radius: 999px;
+      padding: 10px 12px;
+      font-size: 0.77rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .cta-link {
+      display: inline-block;
+      text-decoration: none;
+      margin-top: 16px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(237, 230, 216, 0.38);
+      color: var(--cream-light);
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: 0.25s ease;
+      background: rgba(175, 103, 48, 0.2);
+    }
+
+    .cta-link:hover {
+      background: rgba(245, 240, 232, 0.95);
+      color: var(--brown-deep);
+    }
+
+    .essentials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(260px, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .essential-card {
+      border: 1px solid rgba(61, 42, 28, 0.16);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.7);
+      padding: 14px;
+    }
+
+    .essential-card h3 {
+      color: var(--brown-deep);
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .essential-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 7px 0;
+      border-bottom: 1px dashed rgba(61, 42, 28, 0.2);
+      color: var(--brown-med);
+      font-size: 0.82rem;
+    }
+
+    .essential-line:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .house-guide {
+      border: 1px solid rgba(61, 42, 28, 0.18);
+      border-radius: var(--radius-md);
+      background: linear-gradient(145deg, rgba(245, 240, 232, 0.9), rgba(237, 230, 216, 0.9));
+      padding: 16px;
+    }
+
+    .house-guide h3 {
+      color: var(--brown-deep);
+      font-family: "DM Sans", sans-serif;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .house-guide p {
+      color: var(--brown-med);
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+      max-width: 780px;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 10px;
+    }
+
+    .contact-box {
+      border: 1px solid rgba(61, 42, 28, 0.2);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.78);
+      padding: 11px;
+    }
+
+    .contact-label {
+      color: var(--brown-med);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.63rem;
+      margin-bottom: 4px;
+    }
+
+    .contact-value {
+      color: var(--brown-deep);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .contact-value a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(61, 42, 28, 0.35);
+    }
+
+    .contact-value a:hover {
+      color: var(--copper);
+      border-bottom-color: var(--copper);
+    }
+
+    footer {
+      margin-top: 24px;
+      border: 1px solid rgba(61, 42, 28, 0.2);
+      border-radius: var(--radius-xl);
+      background: rgba(245, 240, 232, 0.9);
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-left img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 1px solid rgba(61, 42, 28, 0.18);
+      background: var(--white);
+      padding: 7px;
+    }
+
+    .footer-title {
+      color: var(--brown-deep);
+      font-family: "DM Sans", sans-serif;
+      font-weight: 500;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-sub {
+      color: var(--brown-med);
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .social-link {
+      text-decoration: none;
+      border: 1px solid rgba(61, 42, 28, 0.25);
+      border-radius: 999px;
+      color: var(--brown-deep);
+      padding: 8px 12px;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.76);
+      transition: 0.2s ease;
+    }
+
+    .social-link:hover {
+      background: var(--brown-deep);
+      color: var(--cream-light);
+      border-color: var(--brown-deep);
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .amenities-layout,
+      .list-grid,
+      .favorites-grid,
+      .activity-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        max-width: 100%;
+      }
+
+      .weather-grid {
+        grid-template-columns: repeat(3, minmax(110px, 1fr));
+      }
+
+      .hero-right-logo {
+        width: clamp(180px, 34vw, 240px);
+        opacity: 0.6;
+      }
+
+      .dining-grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+      }
+    }
+
+    @media (max-width: 820px) {
+      .shell {
+        width: min(1200px, calc(100% - 20px));
+        margin: 14px auto 104px;
+      }
+
+      .topbar {
+        border-radius: 18px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .quick-meta {
+        justify-content: flex-start;
+      }
+
+      .weather-mini,
+      .guide-nav,
+      .stay-grid,
+      .hero-actions {
+        display: none;
+      }
+
+      .mobile-home {
+        display: grid;
+      }
+
+      .stay-grid,
+      .essentials-grid,
+      .contact-row,
+      .dining-grid,
+      .service-grid,
+      .photo-ribbon,
+      .weather-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        min-height: auto;
+      }
+
+      .hero-copy {
+        padding: 28px 20px;
+        gap: 18px;
+      }
+
+      .hero-right-logo {
+        display: none;
+      }
+
+      .hero-sub {
+        margin-bottom: 0;
+        max-width: 100%;
+      }
+
+      .amenities-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .mobile-collapsible-section {
+        padding: 0;
+      }
+
+      .mobile-collapsible-section .section-head {
+        display: none;
+      }
+
+      .mobile-section-toggle {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 22px 20px;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .mobile-collapsible-section.is-open .mobile-section-toggle {
+        border-bottom: 1px solid rgba(61, 42, 28, 0.12);
+      }
+
+      .mobile-collapsible-section .mobile-section-title {
+        font-size: 1.95rem;
+        margin-bottom: 0;
+      }
+
+      .mobile-collapsible-section .mobile-section-body {
+        display: none;
+        padding: 18px 20px 20px;
+      }
+
+      .mobile-collapsible-section.is-open .mobile-section-body {
+        display: block;
+      }
+
+      .mobile-collapsible-section.is-open .mobile-section-icon {
+        transform: rotate(45deg);
+      }
+
+      footer {
+        align-items: flex-start;
+        margin-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="https://docelarhomes.com/deervalleybasecamp">
+        <img src="/guide/deervalleybasecamp/assets/logo.png" alt="Deer Valley Basecamp logo">
+        <span class="brand-stack">
+          <span class="brand-name">Deer Valley Basecamp</span>
+          <span class="brand-sub">Private Guest Guide</span>
+        </span>
+      </a>
+      <div class="quick-meta">
+        <span class="meta-chip">Heber City, Utah</span>
+        <span class="meta-chip">Mountain Retreat</span>
+        <span class="meta-chip">8 min to ski</span>
+        <a class="meta-chip meta-chip--action" href="https://docelarhomes.com/deervalleybasecamp">View Property</a>
+      </div>
+    </header>
+
+    <div class="weather-mini" id="weather" data-reveal>
+      <p class="weather-mini-head">Heber City · 5-day forecast</p>
+      <div class="weather-grid" id="weather-grid">
+        <p class="weather-loading" id="weather-loading">Loading forecast...</p>
+      </div>
+    </div>
+
+    <section class="hero" id="top">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div>
+            <p class="hero-eyebrow">Luxury Mountain Retreat</p>
+            <h1>Deer Valley<br>Basecamp</h1>
+            <p class="hero-sub">Your stay companion in the same visual language as the property site: house essentials, nearby favorites, dining, activities, concierge and emergency contacts.</p>
+            <div class="hero-actions">
+              <a class="hero-action hero-action--primary" href="https://docelarhomes.com/deervalleybasecamp">View Property</a>
+            </div>
+          </div>
+
+          <div class="stay-grid">
+            <div class="stay-card stay-card--details stay-card--wifi">
+              <p class="stay-label">Wi-Fi + Password</p>
+              <div class="stay-details">
+                <div class="stay-detail">
+                  <span class="stay-detail-label">Network</span>
+                  <p class="stay-value stay-value--compact stay-value--network">DeerValleyBasecamp</p>
+                </div>
+                <div class="stay-detail">
+                  <span class="stay-detail-label">Password</span>
+                  <p class="stay-value stay-value--compact stay-value--password">MountainView</p>
+                </div>
+              </div>
+              <div class="stay-card-footer">
+                <button
+                  class="stay-card-action stay-card-action--subtle"
+                  type="button"
+                  data-copy-value="MountainView"
+                  data-copy-target="desktop-copy-status"
+                  data-copy-success="Password copied."
+                  data-copy-fallback="Copy unavailable. Password: MountainView"
+                >
+                  Copy Password
+                </button>
+                <p class="stay-copy-status" id="desktop-copy-status" aria-live="polite"></p>
+              </div>
+            </div>
+            <div class="stay-card stay-card--details stay-card--address">
+              <p class="stay-label">Address</p>
+              <p class="stay-value stay-value--compact stay-value--address">6047 N Fairview Dr,<br>Heber City</p>
+              <a class="stay-card-action" href="https://maps.google.com/?q=6047+N+Fairview+Dr,+Heber+City,+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </div>
+            <div class="stay-card stay-card--timing-pair">
+              <p class="stay-label">Arrival + Departure</p>
+              <div class="stay-timing-pair">
+                <div class="stay-timing-item">
+                  <span class="stay-detail-label">Check-in</span>
+                  <p class="stay-value stay-value--timing">4:00 PM</p>
+                </div>
+                <div class="stay-timing-item">
+                  <span class="stay-detail-label">Checkout</span>
+                  <p class="stay-value stay-value--timing">11:00 AM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="hero-right-logo" aria-hidden="true">
+        <img src="/guide/deervalleybasecamp/assets/logo.png" alt="">
+      </div>
+    </section>
+
+    <div class="mobile-home" aria-label="Mobile guest dashboard">
+      <section class="mobile-panel" id="mobile-arrival" data-reveal>
+        <p class="mobile-panel-label">Fast access</p>
+        <div class="mobile-arrival-grid">
+          <div class="mobile-arrival-card">
+            <div class="mobile-arrival-main">
+              <span class="mobile-arrival-label">Wi-Fi</span>
+              <div class="mobile-arrival-details">
+                <span class="mobile-arrival-detail-label">Network</span>
+                <span class="mobile-arrival-detail-value mobile-arrival-detail-value--network">Deer<wbr>Valley<wbr>Basecamp</span>
+                <span class="mobile-arrival-detail-label">Password</span>
+                <span class="mobile-arrival-detail-value mobile-arrival-detail-value--password">Mountain<wbr>View</span>
+              </div>
+            </div>
+            <button
+              class="mobile-arrival-action"
+              type="button"
+              data-copy-value="MountainView"
+              data-copy-target="mobile-copy-status"
+              data-copy-success="Password copied."
+              data-copy-fallback="Copy unavailable. Password: MountainView"
+            >
+              Copy Password
+            </button>
+          </div>
+          <div class="mobile-arrival-card">
+            <div class="mobile-arrival-main">
+              <span class="mobile-arrival-label">Address</span>
+              <div class="mobile-arrival-details">
+                <span class="mobile-arrival-detail-value">6047 N Fairview Dr,<br>Heber City</span>
+              </div>
+            </div>
+            <a class="mobile-arrival-action" href="https://maps.google.com/?q=6047+N+Fairview+Dr,+Heber+City,+UT" target="_blank" rel="noopener noreferrer">Open Maps</a>
+          </div>
+          <div class="mobile-arrival-card">
+            <div class="mobile-arrival-main">
+              <span class="mobile-arrival-label">Check-in</span>
+              <span class="mobile-arrival-value">4:00 PM</span>
+            </div>
+          </div>
+          <div class="mobile-arrival-card">
+            <div class="mobile-arrival-main">
+              <span class="mobile-arrival-label">Checkout</span>
+              <span class="mobile-arrival-value">11:00 AM</span>
+            </div>
+          </div>
+        </div>
+        <p class="mobile-copy-status" id="mobile-copy-status" aria-live="polite"></p>
+      </section>
+
+      <section class="mobile-panel" id="mobile-to-do" data-reveal>
+        <p class="mobile-panel-label">Things to do highlights</p>
+        <div class="mobile-highlight-list">
+          <article class="mobile-highlight-card">
+            <div>
+              <p class="mobile-highlight-name">East Deer Valley Resort</p>
+              <p class="mobile-highlight-copy">Year-round resort access for skiing, hiking, biking, and mountain days.</p>
+            </div>
+            <div class="mobile-highlight-meta">
+              <span class="mobile-highlight-time">8 min</span>
+              <a class="mobile-highlight-link" href="https://maps.google.com/?q=Deer+Valley+East+Village+-+Main+Parking" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </div>
+          </article>
+          <article class="mobile-highlight-card">
+            <div>
+              <p class="mobile-highlight-name">Top Hiking Guide</p>
+              <p class="mobile-highlight-copy">Top trail options across Park City, Midway, and Heber for year-round exploring.</p>
+            </div>
+            <div class="mobile-highlight-meta">
+              <span class="mobile-highlight-time">Various</span>
+              <a class="mobile-highlight-link" href="/guide/deervalleybasecamp/hikes/">Use the Guide ↗</a>
+            </div>
+          </article>
+          <article class="mobile-highlight-card">
+            <div>
+              <p class="mobile-highlight-name">Jordanelle State Park</p>
+              <p class="mobile-highlight-copy">Quick local escape for views, fresh air, and seasonal activities.</p>
+            </div>
+            <div class="mobile-highlight-meta">
+              <span class="mobile-highlight-time">8 min</span>
+              <a class="mobile-highlight-link" href="https://maps.google.com/?q=Jordanelle+State+Park+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="mobile-panel" id="mobile-eat" data-reveal>
+        <p class="mobile-panel-label">Restaurant highlights</p>
+        <div class="mobile-highlight-list">
+          <article class="mobile-highlight-card">
+            <div>
+              <p class="mobile-highlight-name">Back 40 Ranch House</p>
+              <p class="mobile-highlight-copy">Signature steakhouse dinner near the house.</p>
+            </div>
+            <div class="mobile-highlight-meta">
+              <span class="mobile-highlight-time">8 min</span>
+              <a class="mobile-highlight-link" href="https://maps.google.com/?q=Back+40+Ranch+House+Heber+City+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </div>
+          </article>
+          <article class="mobile-highlight-card">
+            <div>
+              <p class="mobile-highlight-name">Midway Mercantile</p>
+              <p class="mobile-highlight-copy">Stylish market eatery for a polished local meal.</p>
+            </div>
+            <div class="mobile-highlight-meta">
+              <span class="mobile-highlight-time">12 min</span>
+              <a class="mobile-highlight-link" href="https://maps.google.com/?q=Midway+Mercantile+Midway+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </div>
+          </article>
+          <article class="mobile-highlight-card">
+            <div>
+              <p class="mobile-highlight-name">The Hub</p>
+              <p class="mobile-highlight-copy">Casual group-friendly stop for burgers, pizza, and drinks.</p>
+            </div>
+            <div class="mobile-highlight-meta">
+              <span class="mobile-highlight-time">10 min</span>
+              <a class="mobile-highlight-link" href="https://maps.google.com/?q=The+Hub+Heber+City+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <nav class="guide-nav" aria-label="Guide Sections">
+      <a href="#amenities" class="active">Amenities</a>
+      <a href="#nearby">Nearby</a>
+      <a href="#dining">Dining</a>
+      <a href="#activities">Activities</a>
+      <a href="#concierge">Concierge</a>
+      <a href="#essentials">Essentials</a>
+    </nav>
+
+    <section id="guest-favorites" class="section" data-reveal>
+      <div class="section-head">
+        <p class="eyebrow">Guest Favorites</p>
+        <h2 class="section-title">The short list guests reach for first.</h2>
+        <p class="section-desc">Three top places to eat and three top ways to get out, right at the beginning of the stay.</p>
+      </div>
+
+      <div class="favorites-grid">
+        <div class="favorites-column">
+          <p class="favorites-label">Top Restaurants</p>
+          <div class="favorites-list">
+            <article class="list-card favorites-card">
+              <div>
+                <h3><a class="favorites-link" href="https://maps.google.com/?q=Back+40+Ranch+House+Heber+City+UT" target="_blank" rel="noopener noreferrer">Back 40 Ranch House</a></h3>
+              </div>
+              <a class="maps-link" href="https://maps.google.com/?q=Back+40+Ranch+House+Heber+City+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </article>
+            <article class="list-card favorites-card">
+              <div>
+                <h3><a class="favorites-link" href="https://maps.google.com/?q=Midway+Mercantile+Midway+UT" target="_blank" rel="noopener noreferrer">Midway Mercantile</a></h3>
+              </div>
+              <a class="maps-link" href="https://maps.google.com/?q=Midway+Mercantile+Midway+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </article>
+            <article class="list-card favorites-card">
+              <div>
+                <h3><a class="favorites-link" href="https://maps.google.com/?q=The+Hub+Heber+City+UT" target="_blank" rel="noopener noreferrer">The Hub</a></h3>
+              </div>
+              <a class="maps-link" href="https://maps.google.com/?q=The+Hub+Heber+City+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </article>
+          </div>
+        </div>
+
+        <div class="favorites-column">
+          <p class="favorites-label">Top Activities</p>
+          <div class="favorites-list">
+            <article class="list-card favorites-card">
+              <div>
+                <h3><a class="favorites-link" href="https://maps.google.com/?q=Deer+Valley+East+Village+-+Main+Parking" target="_blank" rel="noopener noreferrer">East Deer Valley Resort</a></h3>
+              </div>
+              <a class="maps-link" href="https://maps.google.com/?q=Deer+Valley+East+Village+-+Main+Parking" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </article>
+            <article class="list-card favorites-card">
+              <div>
+                <h3><a class="favorites-link" href="https://maps.google.com/?q=Jordanelle+State+Park+UT" target="_blank" rel="noopener noreferrer">Jordanelle State Park</a></h3>
+              </div>
+              <a class="maps-link" href="https://maps.google.com/?q=Jordanelle+State+Park+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </article>
+            <article class="list-card favorites-card">
+              <div>
+                <h3><a class="favorites-link" href="/guide/deervalleybasecamp/hikes/">Top Hiking Guide</a></h3>
+              </div>
+              <a class="maps-link" href="/guide/deervalleybasecamp/hikes/">Use the Guide ↗</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="amenities" class="section mobile-collapsible-section" data-reveal>
+      <button class="mobile-section-toggle" type="button" aria-expanded="false" aria-controls="amenities-body">
+        <span class="mobile-section-meta">
+          <span class="mobile-section-tag">Your Property</span>
+          <h2 class="section-title mobile-section-title">Amenities & Experiences</h2>
+          <span class="mobile-section-copy">Hot tub, sauna, theater, arcade, grill and the guest favorites inside the house.</span>
+        </span>
+        <span class="mobile-section-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="section-head">
+        <p class="eyebrow">Your Property</p>
+        <h2 class="section-title">Amenities & Experiences</h2>
+        <p class="section-desc">Use os links dentro dos cards para abrir manuais, controles e tutoriais.</p>
+      </div>
+
+      <div class="mobile-section-body" id="amenities-body">
+        <div class="amenities-layout">
+          <div class="amenities-grid">
+            <article class="tile" data-reveal>
+              <div class="tile-title-row">
+                <h3>♨️ Hot Tub</h3>
+              </div>
+              <p>Max 104°F recommended · open year-round</p>
+              <div class="tile-link-list">
+                <a class="tile-guide-link" href="https://www.youtube.com/watch?v=h1W7lILA6bo" target="_blank" rel="noopener noreferrer">How to use</a>
+              </div>
+            </article>
+
+            <article class="tile" data-reveal>
+              <div class="tile-title-row">
+                <h3>📺 Sauna (Infrared)</h3>
+              </div>
+              <p>Barrel sauna · towels provided</p>
+              <div class="tile-link-list">
+                <a class="tile-guide-link" href="https://www.youtube.com/watch?v=96LCt7XuYuc" target="_blank" rel="noopener noreferrer">How to use</a>
+              </div>
+            </article>
+
+            <article class="tile" data-reveal>
+              <div class="tile-title-row">
+                <h3>🔥 Fireplace (Modern Flames LPS-56)</h3>
+              </div>
+              <p>Linear electric fireplace with remote control</p>
+              <div class="tile-link-list">
+                <a class="tile-guide-link" href="https://www.modernflamestore.com/pdf/master/pdfs/modern_flames/linear_fireplaces/landscape_pro/slim/lps-56/2024/ss/lps.pdf" target="_blank" rel="noopener noreferrer">Manual</a>
+                <a class="tile-guide-link" href="https://www.modernflamestore.com/pdf/master/pdfs/modern_flames/linear_fireplaces/landscape_pro/slim/lps-56/2024/controls/remote/remote.pdf" target="_blank" rel="noopener noreferrer">Remote control</a>
+              </div>
+            </article>
+
+            <article class="tile" data-reveal>
+              <div class="tile-title-row">
+                <h3>🕹️ Arcade & Games</h3>
+              </div>
+              <p>Multi arcade · ping pong</p>
+            </article>
+
+            <article class="tile" data-reveal>
+              <div class="tile-title-row">
+                <h3>🎬 Private Theater</h3>
+              </div>
+              <p>80&quot; surround sound</p>
+            </article>
+
+            <article class="tile" data-reveal>
+              <div class="tile-title-row">
+                <h3>🔭 Telescópio (Gskyer)</h3>
+              </div>
+              <p>Gskyer telescope · incredible stargazing</p>
+              <div class="tile-link-list">
+                <a class="tile-guide-link" href="https://productreviewgpt.com/manual/B081RJ8DW1" target="_blank" rel="noopener noreferrer">How to use</a>
+              </div>
+            </article>
+
+            <article class="tile" data-reveal>
+              <div class="tile-title-row">
+                <h3>🍿 Popcorn Machine</h3>
+              </div>
+              <p>Theater style · included</p>
+            </article>
+
+            <article class="tile" data-reveal>
+              <div class="tile-title-row">
+                <h3>🎵 JBL Spinner BT (Vitrola)</h3>
+              </div>
+              <p>Curated collection included</p>
+              <div class="tile-link-list">
+                <a class="tile-guide-link" href="https://www.jbl.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw5bac91aa/pdfs/JBL_Spinner_BT_QSG_7_languages-20230817.pdf" target="_blank" rel="noopener noreferrer">Quick Start Guide</a>
+              </div>
+            </article>
+
+            <article class="tile" data-reveal>
+              <div class="tile-title-row">
+                <h3>🍖 BBQ Grill (Weber Spirit II)</h3>
+              </div>
+              <p>Outdoor gas grill on deck</p>
+              <div class="tile-link-list">
+                <a class="tile-guide-link" href="https://www.youtube.com/watch?v=Cqt-t_9KJyM" target="_blank" rel="noopener noreferrer">How to start</a>
+              </div>
+            </article>
+
+            <article class="tile" data-reveal>
+              <div class="tile-title-row">
+                <h3>🎿 Ski Lounge</h3>
+              </div>
+              <p>Heated boot dryers · equipment storage</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="photo-ribbon" data-reveal>
+          <figure><img src="/guide/deervalleybasecamp/assets/outdoor-hottub.jpg" alt="Hot tub area"></figure>
+          <figure><img src="/guide/deervalleybasecamp/assets/theater-2.jpg" alt="Theater room"></figure>
+          <figure><img src="/guide/deervalleybasecamp/assets/gameroom-1.jpg" alt="Game room"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="nearby" class="section mobile-collapsible-section" data-reveal>
+      <button class="mobile-section-toggle" type="button" aria-expanded="false" aria-controls="nearby-body">
+        <span class="mobile-section-meta">
+          <span class="mobile-section-tag">Explore</span>
+          <h2 class="section-title mobile-section-title">Nearby Attractions</h2>
+          <span class="mobile-section-copy">Railroad, crater, trails, ski resorts, golf and scenic places minutes away.</span>
+        </span>
+        <span class="mobile-section-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="section-head">
+        <p class="eyebrow">Explore</p>
+        <h2 class="section-title">Nearby Attractions</h2>
+        <p class="section-desc">From world-class ski resorts to serene state parks, adventure is minutes away.</p>
+      </div>
+
+      <div class="mobile-section-body" id="nearby-body">
+      <div class="list-grid">
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>Heber Valley Railroad</h3>
+            <p>Scenic heritage train rides</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Heber+Valley+Railroad+Heber+City+UT" target="_blank" rel="noopener noreferrer">7 min ↗</a>
+        </article>
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>Homestead Crater</h3>
+            <p>Natural hot spring · snorkeling</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Homestead+Crater+Midway+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a>
+        </article>
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>Wasatch Trails</h3>
+            <p>Hiking & mountain biking</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Wasatch+Mountain+State+Park+UT" target="_blank" rel="noopener noreferrer">5 min ↗</a>
+        </article>
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>East Deer Valley Resort</h3>
+            <p>World-class skiing</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Deer+Valley+East+Village+-+Main+Parking" target="_blank" rel="noopener noreferrer">8 min ↗</a>
+        </article>
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>Park City Mountain</h3>
+            <p>Largest ski resort in US</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Park+City+Mountain+Resort+UT" target="_blank" rel="noopener noreferrer">20 min ↗</a>
+        </article>
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>Soldier Hollow</h3>
+            <p>Nordic skiing · tubing</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Soldier+Hollow+Nordic+Center+Midway+UT" target="_blank" rel="noopener noreferrer">12 min ↗</a>
+        </article>
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>Jordanelle State Park</h3>
+            <p>Boating · paddleboard · beach</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Jordanelle+State+Park+UT" target="_blank" rel="noopener noreferrer">8 min ↗</a>
+        </article>
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>Provo River</h3>
+            <p>World-class fly fishing</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Provo+River+Heber+City+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a>
+        </article>
+        <article class="list-card" data-reveal>
+          <div>
+            <h3>Wasatch Mountain Golf</h3>
+            <p>36 holes · mountain views</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Wasatch+Mountain+Golf+Course+Midway+UT" target="_blank" rel="noopener noreferrer">8 min ↗</a>
+        </article>
+      </div>
+
+      <div class="photo-ribbon nearby-photo-ribbon" data-reveal>
+        <figure>
+          <img src="/guide/deervalleybasecamp/assets/nearby-heber-railroad.jpg" alt="Heber Valley Railroad train crossing the valley">
+          <figcaption>Heber Valley Railroad</figcaption>
+        </figure>
+        <figure>
+          <img src="/guide/deervalleybasecamp/assets/nearby-jordanelle-local.jpeg" alt="Jordanelle reservoir winter mountain view">
+          <figcaption>Jordanelle Reservoir</figcaption>
+        </figure>
+      </div>
+      </div>
+
+    </section>
+
+    <section id="dining" class="section mobile-collapsible-section" data-reveal>
+      <button class="mobile-section-toggle" type="button" aria-expanded="false" aria-controls="dining-body">
+        <span class="mobile-section-meta">
+          <span class="mobile-section-tag">Curated</span>
+          <h2 class="section-title mobile-section-title">Local Dining</h2>
+          <span class="mobile-section-copy">Brunch, steakhouse, polished local dining, casual bites and group-friendly stops.</span>
+        </span>
+        <span class="mobile-section-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="section-head">
+        <p class="eyebrow">Curated</p>
+        <h2 class="section-title">Local Dining</h2>
+        <p class="section-desc">Our hand-picked favorites, from casual bites to elevated dining experiences.</p>
+      </div>
+
+      <div class="mobile-section-body" id="dining-body">
+      <div class="dining-group">
+        <h3 class="dining-group-title">Best Dinners</h3>
+        <div class="dining-grid">
+          <article class="dining-card" data-reveal>
+            <p class="dining-name">Back 40 Ranch House</p>
+            <p class="dining-type">Steakhouse</p>
+            <div class="dining-meta"><span>$$$</span><a class="maps-link" href="https://maps.google.com/?q=Back+40+Ranch+House+Heber+City+UT" target="_blank" rel="noopener noreferrer">8 min ↗</a></div>
+          </article>
+          <article class="dining-card" data-reveal>
+            <p class="dining-name">Midway Mercantile</p>
+            <p class="dining-type">Market & Eatery</p>
+            <div class="dining-meta"><span>$$</span><a class="maps-link" href="https://maps.google.com/?q=Midway+Mercantile+Midway+UT" target="_blank" rel="noopener noreferrer">12 min ↗</a></div>
+          </article>
+          <article class="dining-card" data-reveal>
+            <p class="dining-name">Riverhorse on Main</p>
+            <p class="dining-type">New American · Upscale · Park City</p>
+            <div class="dining-meta"><span>$$$$</span><a class="maps-link" href="https://maps.google.com/?q=Riverhorse+on+Main+540+Main+St+Park+City+UT" target="_blank" rel="noopener noreferrer">20 min ↗</a></div>
+          </article>
+        </div>
+      </div>
+
+      <div class="dining-group">
+        <h3 class="dining-group-title">Casual + Group-Friendly</h3>
+        <div class="dining-grid">
+          <article class="dining-card" data-reveal>
+            <p class="dining-name">The Hub</p>
+            <p class="dining-type">Casual American · Burgers · Pizza · Drinks</p>
+            <div class="dining-meta"><span>$$</span><a class="maps-link" href="https://maps.google.com/?q=The+Hub+Heber+City+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a></div>
+          </article>
+          <article class="dining-card" data-reveal>
+            <p class="dining-name">Main St Pizza & Noodle</p>
+            <p class="dining-type">Pizza & Pasta</p>
+            <div class="dining-meta"><span>$$</span><a class="maps-link" href="https://maps.google.com/?q=Main+Street+Pizza+Noodle+Park+City+UT" target="_blank" rel="noopener noreferrer">20 min ↗</a></div>
+          </article>
+          <article class="dining-card" data-reveal>
+            <p class="dining-name">Tacos El Cuero</p>
+            <p class="dining-type">Mexican</p>
+            <div class="dining-meta"><span>$</span><a class="maps-link" href="https://maps.google.com/?q=Tacos+El+Cuero+Heber+City+UT" target="_blank" rel="noopener noreferrer">5 min ↗</a></div>
+          </article>
+        </div>
+      </div>
+
+      <div class="dining-group">
+        <h3 class="dining-group-title">Breakfast / Brunch</h3>
+        <div class="dining-grid">
+          <article class="dining-card" data-reveal>
+            <p class="dining-name">Jade's Cafe</p>
+            <p class="dining-type">Cafe & Brunch</p>
+            <div class="dining-meta"><span>$$</span><a class="maps-link" href="https://maps.google.com/?q=Jades+Cafe+Heber+City+UT" target="_blank" rel="noopener noreferrer">5 min ↗</a></div>
+          </article>
+          <article class="dining-card" data-reveal>
+            <p class="dining-name">Café Galleria</p>
+            <p class="dining-type">Cafe</p>
+            <div class="dining-meta"><span>$$</span><a class="maps-link" href="https://maps.google.com/?q=Cafe+Galleria+Heber+City+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a></div>
+          </article>
+        </div>
+      </div>
+
+      <div class="dining-group">
+        <h3 class="dining-group-title">Park City Night Out</h3>
+        <div class="dining-grid">
+          <article class="dining-card" data-reveal>
+            <p class="dining-name">Flanagan's</p>
+            <p class="dining-type">Irish Pub & Grill</p>
+            <div class="dining-meta"><span>$$</span><a class="maps-link" href="https://maps.google.com/?q=Flanagans+on+Main+438+Main+St+Park+City+UT" target="_blank" rel="noopener noreferrer">20 min ↗</a></div>
+          </article>
+          <article class="dining-card" data-reveal>
+            <p class="dining-name">Hidden Ace*</p>
+            <p class="dining-type">Speakeasy · Cocktails · Live Music · Adults only (21+)</p>
+            <div class="dining-meta"><span>$$$</span><a class="maps-link" href="https://maps.google.com/?q=Grand+Hyatt+Deer+Valley+Heber+City+UT" target="_blank" rel="noopener noreferrer">8 min ↗</a></div>
+          </article>
+        </div>
+      </div>
+      </div>
+
+    </section>
+
+    <section id="activities" class="section mobile-collapsible-section" data-reveal>
+      <button class="mobile-section-toggle" type="button" aria-expanded="false" aria-controls="activities-body">
+        <span class="mobile-section-meta">
+          <span class="mobile-section-tag">Explore</span>
+          <h2 class="section-title mobile-section-title">Things to Do</h2>
+          <span class="mobile-section-copy">Open winter, family, trails, hiking, water and fishing ideas around the area.</span>
+        </span>
+        <span class="mobile-section-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="section-head">
+        <p class="eyebrow">Explore</p>
+        <h2 class="section-title">Things to Do</h2>
+      </div>
+
+      <div class="mobile-section-body" id="activities-body">
+      <div class="filter-row" role="tablist" aria-label="Activity categories">
+        <button class="filter-btn active" type="button" data-filter="all">All</button>
+        <button class="filter-btn" type="button" data-filter="winter">Winter</button>
+        <button class="filter-btn" type="button" data-filter="family">Family</button>
+        <button class="filter-btn" type="button" data-filter="trails">Trails & Hiking</button>
+        <button class="filter-btn" type="button" data-filter="water">Water & Fishing</button>
+      </div>
+
+      <div class="activity-grid" id="activity-list">
+        <article class="list-card activity-item" data-cat="winter" data-reveal>
+          <div>
+            <span class="tag winter">Winter</span>
+            <h3>Adventure Haus</h3>
+            <p>Ski & snowboard rentals</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Adventure+Haus+Heber+City+UT" target="_blank" rel="noopener noreferrer">5 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="winter" data-reveal>
+          <div>
+            <span class="tag winter">Winter</span>
+            <h3>Switchback Sports</h3>
+            <p>Premium ski rentals</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Switchback+Sports+Heber+City+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="winter" data-reveal>
+          <div>
+            <span class="tag winter">Winter</span>
+            <h3>Deer Valley Rentals</h3>
+            <p>Slopeside equipment</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Deer+Valley+Resort+Rentals+Park+City+UT" target="_blank" rel="noopener noreferrer">15 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="winter" data-reveal>
+          <div>
+            <span class="tag winter">Winter</span>
+            <h3>Soldier Hollow</h3>
+            <p>Nordic skiing & tubing</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Soldier+Hollow+Nordic+Center+Midway+UT" target="_blank" rel="noopener noreferrer">12 min ↗</a>
+        </article>
+
+        <article class="list-card activity-item" data-cat="family" data-reveal>
+          <div>
+            <span class="tag family">Family</span>
+            <h3>Heber Valley Railroad</h3>
+            <p>Scenic heritage train</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Heber+Valley+Railroad+Heber+City+UT" target="_blank" rel="noopener noreferrer">7 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="family" data-reveal>
+          <div>
+            <span class="tag family">Family</span>
+            <h3>Midway Ice Castles</h3>
+            <p>Seasonal winter attraction</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Ice+Castles+Midway+UT" target="_blank" rel="noopener noreferrer">12 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="family" data-reveal>
+          <div>
+            <span class="tag family">Family</span>
+            <h3>Aquatic Center</h3>
+            <p>Indoor pool & slides</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Wasatch+County+Aquatic+Center+Heber+City+UT" target="_blank" rel="noopener noreferrer">8 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="family" data-reveal>
+          <div>
+            <span class="tag family">Family</span>
+            <h3>Homestead Crater</h3>
+            <p>Natural hot spring</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Homestead+Crater+Midway+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="family" data-reveal>
+          <div>
+            <span class="tag family">Family</span>
+            <h3>Park City Main Street</h3>
+            <p>Shopping & galleries</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Main+Street+Park+City+UT" target="_blank" rel="noopener noreferrer">20 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="family" data-reveal>
+          <div>
+            <span class="tag family">Family</span>
+            <h3>Heber Valley Artisan Cheese</h3>
+            <p>Cheese tastings & farm tours</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Heber+Valley+Artisan+Cheese+Midway+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a>
+        </article>
+
+        <article class="list-card activity-item" data-cat="trails" data-reveal>
+          <div>
+            <span class="tag trails">Trails</span>
+            <h3>AllTrails Heber City</h3>
+            <p>50+ local trails</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Heber+City+trails+UT" target="_blank" rel="noopener noreferrer">Various ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="trails" data-reveal>
+          <div>
+            <span class="tag trails">Trails</span>
+            <h3>Deer Creek Perimeter</h3>
+            <p>Scenic lakeside trail</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Deer+Creek+State+Park+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="trails" data-reveal>
+          <div>
+            <span class="tag trails">Trails</span>
+            <h3>Wasatch Mountain SP</h3>
+            <p>Hiking & camping</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Wasatch+Mountain+State+Park+UT" target="_blank" rel="noopener noreferrer">15 min ↗</a>
+        </article>
+
+        <article class="list-card activity-item" data-cat="water" data-reveal>
+          <div>
+            <span class="tag water">Water</span>
+            <h3>Jordanelle Marina</h3>
+            <p>Boat & kayak rentals</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Jordanelle+State+Park+Marina+UT" target="_blank" rel="noopener noreferrer">8 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="water" data-reveal>
+          <div>
+            <span class="tag water">Water</span>
+            <h3>Fish Heads Fly Shop</h3>
+            <p>Guided fly fishing</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Fish+Heads+Fly+Shop+Heber+City+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="water" data-reveal>
+          <div>
+            <span class="tag water">Water</span>
+            <h3>Rocky Mtn Outfitters</h3>
+            <p>Fishing & outdoor gear</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Rocky+Mountain+Outfitters+Heber+City+UT" target="_blank" rel="noopener noreferrer">8 min ↗</a>
+        </article>
+        <article class="list-card activity-item" data-cat="water" data-reveal>
+          <div>
+            <span class="tag water">Water</span>
+            <h3>Middle Provo River</h3>
+            <p>Blue ribbon trout water</p>
+          </div>
+          <a class="maps-link" href="https://maps.google.com/?q=Middle+Provo+River+UT" target="_blank" rel="noopener noreferrer">10 min ↗</a>
+        </article>
+      </div>
+      </div>
+    </section>
+
+    <section id="concierge" class="section concierge mobile-collapsible-section" data-reveal>
+      <button class="mobile-section-toggle" type="button" aria-expanded="false" aria-controls="concierge-body">
+        <span class="mobile-section-meta">
+          <span class="mobile-section-tag">Premium</span>
+          <h2 class="section-title mobile-section-title">Concierge Services</h2>
+          <span class="mobile-section-copy">Grocery stocking, transportation, ski valet, chef services and help planning your stay.</span>
+        </span>
+        <span class="mobile-section-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="section-head">
+        <p class="eyebrow">Premium</p>
+        <h2 class="section-title">Concierge Services</h2>
+        <p class="section-desc">Elevate your stay with Mountain Time Utah, your personal concierge for everything Heber Valley. Services available before or during your visit.</p>
+      </div>
+
+      <div class="mobile-section-body" id="concierge-body">
+        <div class="service-grid" data-reveal>
+          <div class="service-chip">Grocery Stocking</div>
+          <div class="service-chip">Transportation</div>
+          <div class="service-chip">Ski Valet</div>
+          <div class="service-chip">Private Chef</div>
+          <div class="service-chip">Custom Itinerary</div>
+          <div class="service-chip">Special Events</div>
+        </div>
+
+        <a class="cta-link" href="https://concierge.mountaintimeutah.com/" target="_blank" rel="noopener noreferrer">Book Your Concierge →</a>
+      </div>
+    </section>
+
+    <section id="essentials" class="section mobile-collapsible-section" data-reveal>
+      <button class="mobile-section-toggle" type="button" aria-expanded="false" aria-controls="essentials-body">
+        <span class="mobile-section-meta">
+          <span class="mobile-section-tag">Practical</span>
+          <h2 class="section-title mobile-section-title">Grocery & Essentials</h2>
+          <span class="mobile-section-copy">Groceries, pharmacy, gas stations and emergency contacts in one practical section.</span>
+        </span>
+        <span class="mobile-section-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="section-head">
+        <p class="eyebrow">Practical</p>
+        <h2 class="section-title">Grocery & Essentials</h2>
+      </div>
+
+      <div class="mobile-section-body" id="essentials-body">
+        <div class="essentials-grid">
+          <article class="essential-card" data-reveal>
+            <h3>Grocery</h3>
+            <div class="essential-line"><span>Smith's</span><span>5 min</span></div>
+            <div class="essential-line"><span>Ridley's</span><span>7 min</span></div>
+            <div class="essential-line"><span>Walmart</span><span>10 min</span></div>
+          </article>
+
+          <article class="essential-card" data-reveal>
+            <h3>Services</h3>
+            <div class="essential-line"><span>Gas Stations</span><span>Chevron & Maverik · 5 min</span></div>
+            <div class="essential-line"><span>Pharmacy</span><span>Walgreens · 8 min</span></div>
+          </article>
+        </div>
+
+        <div class="house-guide" data-reveal>
+          <h3>📞 Emergência & Contatos</h3>
+          <p>For urgent help, call the local contacts below. In life-threatening emergencies, dial 911 first.</p>
+
+          <div class="contact-row">
+            <div class="contact-box">
+              <p class="contact-label">Kenady · Local Support</p>
+              <p class="contact-value"><a href="tel:+14352227079">+1 (435) 222-7079</a></p>
+            </div>
+            <div class="contact-box">
+              <p class="contact-label">Heber City Police</p>
+              <p class="contact-value"><a href="tel:+14356541098">(435) 654-1098</a></p>
+            </div>
+            <div class="contact-box">
+              <p class="contact-label">Fire/EMS</p>
+              <p class="contact-value"><a href="tel:+14356541411">(435) 654-1411</a></p>
+            </div>
+            <div class="contact-box">
+              <p class="contact-label">Poison Control</p>
+              <p class="contact-value"><a href="tel:+14359409636">(435) 940-9636</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <footer data-reveal>
+      <div class="footer-left">
+        <img src="/guide/deervalleybasecamp/assets/logo.png" alt="Deer Valley Basecamp logo">
+        <div>
+          <p class="footer-title">Deer Valley Basecamp</p>
+          <p class="footer-sub">Heber City, Utah · Mountain Retreat</p>
+        </div>
+      </div>
+      <a class="social-link" href="https://docelarhomes.com/deervalleybasecamp">View Property</a>
+      <a class="social-link" href="https://instagram.com/deervalleybasecamp" target="_blank" rel="noopener noreferrer">@deervalleybasecamp</a>
+    </footer>
+
+  </div>
+
+  <script>
+    const revealItems = document.querySelectorAll("[data-reveal]");
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const activityItems = document.querySelectorAll(".activity-item");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+
+        filterButtons.forEach((b) => b.classList.remove("active"));
+        button.classList.add("active");
+
+        activityItems.forEach((item) => {
+          const shouldShow = filter === "all" || item.dataset.cat === filter;
+          item.classList.toggle("hidden", !shouldShow);
+        });
+      });
+    });
+
+    const navLinks = document.querySelectorAll(".guide-nav a");
+    const sections = document.querySelectorAll("section[id]");
+
+    const setActiveLink = () => {
+      let currentId = sections[0]?.id;
+      sections.forEach((section) => {
+        const top = section.getBoundingClientRect().top;
+        if (top <= 160) currentId = section.id;
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
+      });
+    };
+
+    window.addEventListener("scroll", setActiveLink, { passive: true });
+    setActiveLink();
+
+    const copyText = async (value) => {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(value);
+        return;
+      }
+
+      const helper = document.createElement("textarea");
+      helper.value = value;
+      helper.setAttribute("readonly", "");
+      helper.style.position = "absolute";
+      helper.style.left = "-9999px";
+      document.body.appendChild(helper);
+      helper.select();
+      document.execCommand("copy");
+      document.body.removeChild(helper);
+    };
+
+    const copyTriggers = document.querySelectorAll("[data-copy-value]");
+
+    copyTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", async () => {
+        const targetId = trigger.dataset.copyTarget;
+        const statusTarget = targetId ? document.getElementById(targetId) : null;
+
+        try {
+          await copyText(trigger.dataset.copyValue || "");
+          if (statusTarget) {
+            statusTarget.textContent = trigger.dataset.copySuccess || "Copied.";
+          }
+        } catch (error) {
+          if (statusTarget) {
+            statusTarget.textContent = trigger.dataset.copyFallback || "Copy unavailable.";
+          }
+        }
+
+        if (statusTarget) {
+          statusTarget.classList.add("is-visible");
+          window.clearTimeout(statusTarget._copyTimeout);
+          statusTarget._copyTimeout = window.setTimeout(() => {
+            statusTarget.classList.remove("is-visible");
+          }, 2600);
+        }
+      });
+    });
+
+    const mobileCollapsibleSections = document.querySelectorAll(".mobile-collapsible-section");
+
+    const isMobileAccordionViewport = () => window.matchMedia("(max-width: 820px)").matches;
+
+    const setMobileSectionState = (section, isOpen) => {
+      const toggle = section.querySelector(".mobile-section-toggle");
+      if (!toggle) return;
+      section.classList.toggle("is-open", isOpen);
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    };
+
+    if (mobileCollapsibleSections.length) {
+      mobileCollapsibleSections.forEach((section) => {
+        const toggle = section.querySelector(".mobile-section-toggle");
+        if (!toggle) return;
+
+        toggle.addEventListener("click", () => {
+          if (!isMobileAccordionViewport()) return;
+
+          const shouldOpen = !section.classList.contains("is-open");
+          mobileCollapsibleSections.forEach((item) => setMobileSectionState(item, false));
+
+          if (shouldOpen) {
+            setMobileSectionState(section, true);
+          }
+        });
+
+        setMobileSectionState(section, false);
+      });
+
+      window.addEventListener("resize", () => {
+        mobileCollapsibleSections.forEach((section) => setMobileSectionState(section, false));
+      });
+    }
+
+    const weatherGrid = document.getElementById("weather-grid");
+    const weatherLoading = document.getElementById("weather-loading");
+
+    const weatherCodeLabel = (code) => {
+      const map = {
+        0: "Clear sky",
+        1: "Mostly clear",
+        2: "Partly cloudy",
+        3: "Overcast",
+        45: "Fog",
+        48: "Rime fog",
+        51: "Light drizzle",
+        53: "Drizzle",
+        55: "Heavy drizzle",
+        61: "Light rain",
+        63: "Rain",
+        65: "Heavy rain",
+        71: "Light snow",
+        73: "Snow",
+        75: "Heavy snow",
+        77: "Snow grains",
+        80: "Rain showers",
+        81: "Heavy showers",
+        82: "Violent showers",
+        85: "Snow showers",
+        86: "Heavy snow showers",
+        95: "Thunderstorm"
+      };
+      return map[code] || "Variable weather";
+    };
+
+    const formatWeekday = (isoDate) => {
+      const date = new Date(isoDate + "T12:00:00");
+      return date.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+    };
+
+    const renderWeather = (daily) => {
+      const codes = daily.weathercode || daily.weather_code || [];
+      weatherGrid.innerHTML = "";
+
+      daily.time.forEach((day, index) => {
+        const max = Math.round(daily.temperature_2m_max[index]);
+        const min = Math.round(daily.temperature_2m_min[index]);
+        const code = codes[index];
+
+        const card = document.createElement("article");
+        card.className = "weather-card";
+        card.innerHTML = `
+          <p class="weather-day">${formatWeekday(day)}</p>
+          <p class="weather-code">${weatherCodeLabel(code)}</p>
+          <p class="weather-temp">${max}&deg;F / ${min}&deg;F</p>
+        `;
+        weatherGrid.appendChild(card);
+      });
+    };
+
+    const loadWeather = async () => {
+      try {
+        const url = "https://api.open-meteo.com/v1/forecast?latitude=40.5070&longitude=-111.4133&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=America%2FDenver&forecast_days=5";
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("Weather API unavailable");
+        const data = await response.json();
+        if (!data?.daily?.time?.length) throw new Error("No forecast data");
+        renderWeather(data.daily);
+      } catch (error) {
+        if (weatherLoading) {
+          weatherLoading.textContent = "Forecast unavailable right now. You can check Weather.com for Heber City, UT.";
+        } else {
+          const fallback = document.createElement("p");
+          fallback.className = "weather-loading";
+          fallback.textContent = "Forecast unavailable right now. You can check Weather.com for Heber City, UT.";
+          weatherGrid.appendChild(fallback);
+        }
+      }
+    };
+
+    loadWeather();
+  </script>
+</body>
+</html>

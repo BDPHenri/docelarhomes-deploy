@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews — Deer Valley Basecamp</title>
+<meta name="description" content="Read verified guest reviews of Deer Valley Basecamp and see what guests say about their stay.">
+<meta property="og:title" content="Reviews — Deer Valley Basecamp">
+<meta property="og:description" content="See what guests say about their stay at our mountain retreat.">
+<meta property="og:image" content="images/hero.jpg">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/reviews.css">
+<link rel="stylesheet" href="css/booking.css">
+<style>
+  .cta-banner {
+    background: linear-gradient(135deg, var(--brown-deep), var(--brown-choc));
+    border-radius: 20px;
+    padding: 64px 40px;
+    color: var(--cream);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    max-width: var(--max-width-narrow);
+    margin: 0 auto 80px;
+  }
+  .cta-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 50%, rgba(175,103,48,0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 50%, rgba(137,127,89,0.08) 0%, transparent 50%);
+  }
+  .cta-banner-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 300;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .cta-banner .btn { position: relative; }
+  @media (max-width: 640px) { .cta-banner { padding: 48px 24px; margin: 0 16px 60px; } }
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-tag">Guest Experiences</div>
+    <h1 class="page-hero-title">Reviews</h1>
+    <p class="page-hero-desc">Hear from our guests across all platforms.</p>
+  </div>
+</div>
+
+<!-- RATING BANNER -->
+<div class="rating-banner fade-in">
+  <div class="rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+  <div class="rating-score" id="rating-score">—</div>
+  <div class="rating-label">Exceptional</div>
+  <div class="rating-count" id="rating-count">Loading curated reviews...</div>
+</div>
+
+<!-- FILTER TABS -->
+<section style="padding-top: 0; padding-bottom: 32px;">
+  <div class="category-tabs reviews-tabs fade-in">
+    <button class="cat-tab active" data-platform="all">All</button>
+    <button class="cat-tab" data-platform="airbnb">Airbnb</button>
+    <button class="cat-tab" data-platform="vrbo">VRBO</button>
+    <button class="cat-tab" data-platform="booking">Booking.com</button>
+  </div>
+</section>
+
+<!-- REVIEWS GRID -->
+<div class="reviews-grid" id="reviews-grid" aria-live="polite"></div>
+<div class="reviews-status" id="reviews-status">Loading live reviews...</div>
+
+<!-- PLATFORM CTAs -->
+<section>
+  <div class="section-header fade-in">
+    <div class="section-tag">Read More</div>
+    <h2 class="section-title">See All Reviews</h2>
+    <div class="section-line"></div>
+  </div>
+</section>
+
+<div class="platform-links" style="padding-bottom: 0;">
+  <a class="platform-card fade-in is-unavailable" data-listing="airbnb" data-available-cta="Read on Airbnb →" data-unavailable-cta="Airbnb reviews link coming soon" target="_blank" rel="noopener" aria-disabled="true">
+    <div class="platform-icon">&#127968;</div>
+    <div class="platform-name">Airbnb</div>
+    <div class="platform-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <div class="platform-count"><span id="platform-count-airbnb">0</span> Reviews</div>
+    <div class="platform-cta">Read on Airbnb &rarr;</div>
+  </a>
+  <a class="platform-card fade-in is-unavailable" data-listing="vrbo" data-available-cta="Read on VRBO →" data-unavailable-cta="VRBO reviews link coming soon" target="_blank" rel="noopener" aria-disabled="true">
+    <div class="platform-icon">&#127956;</div>
+    <div class="platform-name">VRBO</div>
+    <div class="platform-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <div class="platform-count"><span id="platform-count-vrbo">0</span> Reviews</div>
+    <div class="platform-cta">Read on VRBO &rarr;</div>
+  </a>
+  <a class="platform-card fade-in is-unavailable" data-listing="booking" data-available-cta="Read on Booking.com →" data-unavailable-cta="Booking.com reviews link coming soon" target="_blank" rel="noopener" aria-disabled="true">
+    <div class="platform-icon">&#128205;</div>
+    <div class="platform-name">Booking.com</div>
+    <div class="platform-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <div class="platform-count"><span id="platform-count-booking">0</span> Reviews</div>
+    <div class="platform-cta">Read on Booking.com &rarr;</div>
+  </a>
+</div>
+
+<!-- CTA BANNER -->
+<section>
+  <div class="cta-banner fade-in">
+    <h2 class="cta-banner-title">Ready to Create Your Own Story?</h2>
+    <a href="book.html" class="btn btn--primary">Book Your Stay</a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/site-config.js" defer></script>
+<script src="js/components.js" defer></script>
+<script src="js/animations.js" defer></script>
+<script src="js/reviews-data.js" defer></script>
+<script src="js/reviews.js" defer></script>
+</body>
+</html>
