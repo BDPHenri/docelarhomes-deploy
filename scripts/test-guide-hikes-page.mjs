@@ -24,6 +24,11 @@ assert.match(
   /https:\/\/maps\.google\.com\/\?q=Silver\+Lake\+Lodge\+Deer\+Valley\+Resort\+Park\+City\+UT/i,
   'hikes page should link Deer Valley access to maps'
 )
+assert.match(
+  hikesSource,
+  /<img src="\.\.\/assets\/IMG_5843\.JPG" alt="/i,
+  'hikes page should use IMG_5843 as the hero-side image'
+)
 
 if (process.argv[2]) {
   const baseUrl = process.argv[2].replace(/\/$/, '')
