@@ -29,6 +29,11 @@ assert.match(
   /<img src="\.\.\/assets\/IMG_5843\.JPG" alt="/i,
   'hikes page should use IMG_5843 as the hero-side image'
 )
+assert.doesNotMatch(hikesSource, /How to use this page/i, 'hikes page should not render the extra how-to side card')
+assert.doesNotMatch(hikesSource, /Closer days/i, 'hikes page should remove the vague closer-days caption')
+assert.doesNotMatch(hikesSource, /River \+ reservoir/i, 'hikes page should remove the vague river-plus-reservoir caption')
+assert.match(hikesSource, /Provo River/i, 'hikes page should clearly identify the photo as Provo River')
+assert.match(hikesSource, /Minutes from the house/i, 'hikes page should note that the photo is close to the house')
 
 if (process.argv[2]) {
   const baseUrl = process.argv[2].replace(/\/$/, '')
