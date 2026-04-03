@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top 10 Hikes Near Deer Valley Basecamp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brown-deep: #3d2a1c;
+      --brown-med: #7a6045;
+      --gold: #897f59;
+      --copper: #af6730;
+      --cream-light: #faf7f2;
+      --cream: #f5f0e8;
+      --cream-warm: #ede6d8;
+      --white: #ffffff;
+      --ink: #241a12;
+      --line: rgba(61, 42, 28, 0.16);
+      --shadow-lg: 0 22px 54px rgba(56, 49, 35, 0.16);
+      --shadow-md: 0 12px 28px rgba(56, 49, 35, 0.1);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 520px at 5% -10%, rgba(175, 103, 48, 0.2), transparent 60%),
+        radial-gradient(760px 420px at 95% 0%, rgba(137, 127, 89, 0.16), transparent 58%),
+        linear-gradient(160deg, var(--cream-light), var(--cream) 46%, var(--cream-warm) 100%);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .shell {
+      width: min(1160px, calc(100% - 40px));
+      margin: 22px auto 42px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(245, 240, 232, 0.86);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 12px;
+      z-index: 30;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--brown-deep);
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(61, 42, 28, 0.22);
+      object-fit: contain;
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .brand-stack {
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .brand-sub {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brown-med);
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .chip-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(61, 42, 28, 0.2);
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--brown-med);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.68rem;
+      transition: 0.22s ease;
+    }
+
+    .chip-link--primary {
+      background: var(--brown-deep);
+      border-color: var(--brown-deep);
+      color: var(--cream-light);
+    }
+
+    .chip-link:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .hero-copy,
+    .hero-side {
+      border: 1px solid rgba(61, 42, 28, 0.18);
+      border-radius: var(--radius-xl);
+      background: rgba(250, 247, 242, 0.78);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    .hero-copy {
+      position: relative;
+      padding: 36px;
+      background:
+        linear-gradient(135deg, rgba(61, 42, 28, 0.94), rgba(36, 26, 18, 0.9)),
+        url("../assets/instagram-snow-mountain-no-logo.jpg") center/cover;
+      color: var(--cream-light);
+      min-height: 360px;
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 78% 86%, rgba(175, 103, 48, 0.34), transparent 32%);
+      pointer-events: none;
+    }
+
+    .hero-copy > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #d8c89a;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      line-height: 0.94;
+      font-weight: 500;
+      max-width: 12ch;
+      margin-bottom: 18px;
+    }
+
+    .hero-copy p {
+      max-width: 32rem;
+      color: rgba(245, 240, 232, 0.84);
+      font-size: 0.98rem;
+      margin-bottom: 24px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 240, 232, 0.18);
+      background: rgba(245, 240, 232, 0.08);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero-side {
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .side-photo {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      min-height: 220px;
+      position: relative;
+    }
+
+    .side-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .side-caption {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--cream-light);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .side-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.72);
+      padding: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .side-card p:first-child {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brown-med);
+    }
+
+    .side-card p:last-child {
+      font-size: 0.92rem;
+      color: var(--brown-deep);
+    }
+
+    .group-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .group {
+      border: 1px solid rgba(61, 42, 28, 0.16);
+      border-radius: var(--radius-xl);
+      background: rgba(250, 247, 242, 0.8);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .group-head {
+      padding: 24px 24px 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .group-kicker {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brown-med);
+    }
+
+    .group-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .group h2 {
+      font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+      line-height: 1;
+      color: var(--brown-deep);
+      font-weight: 600;
+    }
+
+    .count-chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(61, 42, 28, 0.18);
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brown-med);
+    }
+
+    .group-copy {
+      color: rgba(122, 96, 69, 0.9);
+      font-size: 0.92rem;
+      max-width: 44rem;
+    }
+
+    .trail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      padding: 10px 24px 24px;
+    }
+
+    .trail-card {
+      border: 1px solid rgba(61, 42, 28, 0.14);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.72);
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+      min-height: 230px;
+    }
+
+    .trail-rank {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(61, 42, 28, 0.08);
+      color: var(--brown-deep);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+
+    .trail-card h3 {
+      color: var(--brown-deep);
+      font-size: 1.36rem;
+      line-height: 1.04;
+      font-weight: 600;
+    }
+
+    .trail-copy {
+      color: var(--brown-med);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .trail-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .trail-meta li {
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(61, 42, 28, 0.14);
+      background: rgba(245, 240, 232, 0.72);
+      color: var(--brown-med);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .trail-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .maps-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(61, 42, 28, 0.2);
+      background: rgba(245, 240, 232, 0.86);
+      color: var(--brown-deep);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: 0.22s ease;
+    }
+
+    .maps-link:hover {
+      background: var(--brown-deep);
+      border-color: var(--brown-deep);
+      color: var(--cream-light);
+    }
+
+    .trail-note {
+      color: rgba(122, 96, 69, 0.9);
+      font-size: 0.78rem;
+    }
+
+    .footer-note {
+      margin-top: 20px;
+      padding: 18px 20px;
+      border: 1px solid rgba(61, 42, 28, 0.14);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.66);
+      color: var(--brown-med);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .trail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        width: min(100%, calc(100% - 24px));
+        margin-top: 14px;
+      }
+
+      .topbar {
+        border-radius: 24px;
+        align-items: flex-start;
+      }
+
+      .topbar,
+      .topbar-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-copy,
+      .hero-side {
+        border-radius: 26px;
+      }
+
+      .hero-copy {
+        padding: 26px 22px;
+        min-height: 320px;
+      }
+
+      .group-head,
+      .trail-grid {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .group-title-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .trail-card {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="topbar">
+      <a class="brand" href="/guide/deervalleybasecamp/">
+        <img src="../assets/logo.png" alt="Deer Valley Basecamp logo">
+        <span class="brand-stack">
+          <span class="brand-name">Deer Valley Basecamp</span>
+          <span class="brand-sub">Top 10 Hikes</span>
+        </span>
+      </a>
+      <div class="topbar-actions">
+        <a class="chip-link" href="/guide/deervalleybasecamp/">Back to Guide</a>
+        <a class="chip-link chip-link--primary" href="https://docelarhomes.com/deervalleybasecamp">View Property</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Year-round trail guide</p>
+        <h1>Top 10 Hikes Near Deer Valley Basecamp</h1>
+        <p>A curated page for guests who want the best nearby hiking split cleanly into 3 easy, 3 moderate, and 4 hard picks. Easy leans into the Provo River corridor and softer family routes; hard moves into bigger Deer Valley and Wasatch days.</p>
+        <div class="hero-meta">
+          <span class="hero-chip">3 easy</span>
+          <span class="hero-chip">3 moderate</span>
+          <span class="hero-chip">4 hard</span>
+          <span class="hero-chip">Maps for every trail</span>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <figure class="side-photo">
+          <img src="../assets/nearby-jordanelle-local.jpeg" alt="Jordanelle trail views">
+          <figcaption class="side-caption">
+            <span>Closer days</span>
+            <span>River + reservoir</span>
+          </figcaption>
+        </figure>
+        <div class="side-card">
+          <p>How to use this page</p>
+          <p>Each card is ranked inside its difficulty group and includes a short why-go note, a rough drive time from the house, and an `Open Maps` link to the trailhead or main access point.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="group-grid">
+      <section class="group" id="easy">
+        <div class="group-head">
+          <p class="group-kicker">Easy</p>
+          <div class="group-title-row">
+            <h2>Easy</h2>
+            <span class="count-chip">3 picks</span>
+          </div>
+          <p class="group-copy">Arrival-day walks, family-friendly loops, and the softer river-side options you asked to keep in the mix.</p>
+        </div>
+        <div class="trail-grid">
+          <article class="trail-card">
+            <span class="trail-rank">Easy #1</span>
+            <div>
+              <h3>Provo River Parkway</h3>
+              <p class="trail-copy">The easiest river-day on the list: broad path, canyon water, and a relaxed option when you want fresh air without turning the day into a mission.</p>
+            </div>
+            <ul class="trail-meta">
+              <li>20 min</li>
+              <li>Provo River</li>
+              <li>Soft start</li>
+            </ul>
+            <div class="trail-actions">
+              <a class="maps-link" href="https://maps.google.com/?q=Provo+River+Parkway+Trail+Vivian+Park+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </div>
+          </article>
+
+          <article class="trail-card">
+            <span class="trail-rank">Easy #2</span>
+            <div>
+              <h3>Rock Cliff Boardwalk</h3>
+              <p class="trail-copy">A calm wetlands walk near Jordanelle that works beautifully for kids, wildlife spotting, and guests who want a scenic loop without elevation stress.</p>
+            </div>
+            <ul class="trail-meta">
+              <li>15 min</li>
+              <li>Jordanelle</li>
+              <li>Family-friendly</li>
+            </ul>
+            <div class="trail-actions">
+              <a class="maps-link" href="https://maps.google.com/?q=Rock+Cliff+Nature+Center+Kamas+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </div>
+          </article>
+
+          <article class="trail-card">
+            <span class="trail-rank">Easy #3</span>
+            <div>
+              <h3>Cascade Springs Trail</h3>
+              <p class="trail-copy">Beautiful boardwalk-style walking with clear spring water, cool air, and a very high reward-to-effort ratio for visitors who want a classic Utah nature stop.</p>
+            </div>
+            <ul class="trail-meta">
+              <li>30 min</li>
+              <li>Midway side</li>
+              <li>Water views</li>
+            </ul>
+            <div class="trail-actions">
+              <a class="maps-link" href="https://maps.google.com/?q=Cascade+Springs+Trailhead+Midway+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="group" id="moderate">
+        <div class="group-head">
+          <p class="group-kicker">Moderate</p>
+          <div class="group-title-row">
+            <h2>Moderate</h2>
+            <span class="count-chip">3 picks</span>
+          </div>
+          <p class="group-copy">Scenic half-day hikes with a bit more climbing, better view payoff, and easy access across Jordanelle, Midway, and Deer Valley.</p>
+        </div>
+        <div class="trail-grid">
+          <article class="trail-card">
+            <span class="trail-rank">Moderate #1</span>
+            <div>
+              <h3>Jordanelle Reservoir Perimeter Trail</h3>
+              <p class="trail-copy">The best local reservoir option when guests want distance, shoreline views, and a route that still feels practical from the house.</p>
+            </div>
+            <ul class="trail-meta">
+              <li>10 min</li>
+              <li>Lake views</li>
+              <li>Great for groups</li>
+            </ul>
+            <div class="trail-actions">
+              <a class="maps-link" href="https://maps.google.com/?q=Jordanelle+Reservoir+Perimeter+Trail+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </div>
+          </article>
+
+          <article class="trail-card">
+            <span class="trail-rank">Moderate #2</span>
+            <div>
+              <h3>Wasatch Mountain State Park Nature Trail</h3>
+              <p class="trail-copy">A stronger Midway-side choice with steady movement, forested sections, and enough variety to feel like a real hike without going fully hard.</p>
+            </div>
+            <ul class="trail-meta">
+              <li>15 min</li>
+              <li>Midway</li>
+              <li>Good half day</li>
+            </ul>
+            <div class="trail-actions">
+              <a class="maps-link" href="https://maps.google.com/?q=Wasatch+Mountain+State+Park+Nature+Trail+Midway+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </div>
+          </article>
+
+          <article class="trail-card">
+            <span class="trail-rank">Moderate #3</span>
+            <div>
+              <h3>Silver Lake Trail</h3>
+              <p class="trail-copy">The Deer Valley/Park City option in this tier: alpine atmosphere, lift-area access, and a cleaner way to taste the resort terrain before committing to bigger climbs.</p>
+            </div>
+            <ul class="trail-meta">
+              <li>20 min</li>
+              <li>Deer Valley</li>
+              <li>Alpine feel</li>
+            </ul>
+            <div class="trail-actions">
+              <a class="maps-link" href="https://maps.google.com/?q=Silver+Lake+Lodge+Deer+Valley+Resort+Park+City+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="group" id="hard">
+        <div class="group-head">
+          <p class="group-kicker">Hard</p>
+          <div class="group-title-row">
+            <h2>Hard</h2>
+            <span class="count-chip">4 picks</span>
+          </div>
+          <p class="group-copy">Bigger effort days for guests chasing stronger elevation, longer mileage, and the more serious trail feel around the Wasatch Back.</p>
+        </div>
+        <div class="trail-grid">
+          <article class="trail-card">
+            <span class="trail-rank">Hard #1</span>
+            <div>
+              <h3>Boneyard Trail</h3>
+              <p class="trail-copy">Shorter than some others in this tier, but steeper and more committing. A solid hard option when you want a sharper climb and rewarding high-desert views.</p>
+            </div>
+            <ul class="trail-meta">
+              <li>20 min</li>
+              <li>Midway side</li>
+              <li>Steeper push</li>
+            </ul>
+            <div class="trail-actions">
+              <a class="maps-link" href="https://maps.google.com/?q=Boneyard+Trail+Midway+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </div>
+          </article>
+
+          <article class="trail-card">
+            <span class="trail-rank">Hard #2</span>
+            <div>
+              <h3>Silver Lake to Bald Mountain</h3>
+              <p class="trail-copy">The signature Deer Valley day here: more altitude, more payoff, and the kind of alpine outing guests remember when they want a true mountain climb.</p>
+            </div>
+            <ul class="trail-meta">
+              <li>20 min</li>
+              <li>Park City</li>
+              <li>Big summit energy</li>
+            </ul>
+            <div class="trail-actions">
+              <a class="maps-link" href="https://maps.google.com/?q=Silver+Lake+Lodge+Deer+Valley+Resort+Park+City+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </div>
+          </article>
+
+          <article class="trail-card">
+            <span class="trail-rank">Hard #3</span>
+            <div>
+              <h3>East Fork Three Forks Trail</h3>
+              <p class="trail-copy">A harder backcountry-feeling pick with quieter surroundings and a stronger sense of getting out of the resort-and-town rhythm.</p>
+            </div>
+            <ul class="trail-meta">
+              <li>40 min</li>
+              <li>Wasatch Back</li>
+              <li>Quieter trail</li>
+            </ul>
+            <div class="trail-actions">
+              <a class="maps-link" href="https://maps.google.com/?q=East+Fork+Three+Forks+Trail+Kamas+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </div>
+          </article>
+
+          <article class="trail-card">
+            <span class="trail-rank">Hard #4</span>
+            <div>
+              <h3>South Fork Little Deer Creek</h3>
+              <p class="trail-copy">This closes the list as the more committed local challenge, with bigger mileage and a stronger effort profile for guests who want a real workout day.</p>
+            </div>
+            <ul class="trail-meta">
+              <li>30 min</li>
+              <li>Wallsburg side</li>
+              <li>Longer push</li>
+            </ul>
+            <div class="trail-actions">
+              <a class="maps-link" href="https://maps.google.com/?q=South+Fork+Little+Deer+Creek+Trail+Wallsburg+UT" target="_blank" rel="noopener noreferrer">Open Maps ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer-note">
+      Preview note: this page is curated for guest planning, not live trail conditions. Before a real hike, guests should still check weather, closures, snow, and trailhead notices for the day.
+    </div>
+  </div>
+</body>
+</html>
