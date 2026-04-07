@@ -20,6 +20,12 @@ assert.match(
 
 assert.match(
   guideSource,
+  /stay-card--wifi[\s\S]*?stay-value stay-value--compact stay-value--network[^>]*>Deer<wbr>Valley<wbr>Basecamp</i,
+  'desktop Wi-Fi card should use controlled line breaks for the network name'
+)
+
+assert.match(
+  guideSource,
   /stay-card--wifi[\s\S]*?stay-value stay-value--compact stay-value--password[\s\S]*?MountainView/i,
   'desktop Wi-Fi card should give the password a stronger visual treatment than the network'
 )
